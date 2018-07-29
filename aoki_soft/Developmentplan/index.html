@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="ソフトウェア工学２">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="index.html">
+<link rel="index" href="index.html">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<title>ソフトウェア工学２</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../index.html">ホーム</a></li>
+  <li><a href="../Requirement/index.html">要求仕様書</a></li>
+  <li><a href="../DevelopmentPlan/index.html" class="current">開発計画書</a></li>
+  <li><a href="../BasicDesign/index.html">基本設計書</a></li>
+  <li><a href="../DetailDesign/index.html">詳細設計書</a></li>
+  <li><a href="../TestSpecification/index.html">テスト仕様書</a></li>
+  <li><a href="../TestResult/index.html">テスト結果</a></li>
+  <li><a href="../DevelopmentResult/index.html">開発実績</a></li>
+  <li><a href="../Program/index.html">プログラム</a></li>
+  <li><a href="../Manual/index.html">マニュアル</a></li>
+</ul>
+</div>
+<hr>
+<h2>ソフトウェア工学２ 開発計画書</h2>
+<div class="belt">
+<h3><a name="KanseiSaseteKudasai">開発体制</a></h3>
+</div>
+
+    <p>開発に関わるメンバの一覧と開発予定コンポーネント（部品＝クラス）の担当者を以下に示す。</p>
+    <table summary="table">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="content" summary="table">
+                        <tbody>
+                            <tr>
+                                <td align="right">プロジェクトマネージャ：</td>
+                                <td align="left">高柳直也</td>
+                            </tr>
+                            <tr>
+                                <td align="right">デザイナ：</td>
+                                <td align="left">富永陽羽　吉村晴夏</td>
+                            </tr>
+                            <tr>
+                                <td align="right">プログラマ：</td>
+                                <td align="left">松尾彩望　澤田良太　加藤英里</td>
+                            </tr>
+                            <tr>
+                                <td align="right">テスタ：</td>
+                                <td align="left">柴崎友哉　上原恵</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>開発計画は以上のメンバーで行う。全体の責任者は高柳直也とする。なお、担当の作業が終了次第、柔軟に作業を進めるために、進行が遅れている作業を手伝うことにする。ガントチャートを作成し、
+    7月26日を厳守とする。なお、画像についてはクリックすることで、拡大された画像で確認できる</p>
+    <div class="belt">
+        <h3><a name="KaihatsuSchedule">開発スケジュール</a></h3>
+    </div>
+    <p>以下に開発スケジュールを記す。</p>
+    <table summary="table">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="content" summary="table">
+                        <tbody>
+                            <tr>
+                                <td class="center-small"><a href="ganto.jpg"><img class="borderless" src="ganto.jpg" width="500" height="200" alt="ガントチャート"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="belt">
+        <h3><a name="MitsumoriGaku">見積額</a></h3>
+    </div>
+    <p>仕様書通り、プログラムを作成でき、納品後、異常がなければ、必要数２単位を要求する。期間は約１ヶ月半とした。この開発の見積額は「14単位」である。</p>
+    <table summary="table">
+        <tbody>
+            <tr>
+                <td>
+                    <table border="1" summary="table">
+                        <tbody>
+                            <tr>
+                                <th class="center-padding" abbr="1">学年</th>
+                                <th class="center-padding" abbr="2">経験（職業）</th>
+                                <th class="center-padding" abbr="3">人期単価（春学期）</th>
+                                <th class="center-padding" abbr="4">人月単価（月）</th>
+                                <th class="center-padding" abbr="5">人日単価（日）</th>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">高柳直也</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">松尾彩望</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">富永陽羽</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">加藤英里</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">澤田良太</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">柴崎友哉</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                            <tr>
+                                <td class="center-padding">３回生</td>
+                                <td class="center-padding">上原恵</td>
+                                <td class="right-padding">２単位</td>
+                                <td class="right-padding">0.5単位</td>
+                                <td class="right-padding">0.016単位</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<hr>
+<div class="right-small">Copyright 2018 Project , Updated: 2018/07/28 (Created: 2018/07/28)</div>
+</body>
+</html>
